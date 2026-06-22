@@ -1,0 +1,31 @@
+﻿@'
+# Dependencias y entornos
+node_modules/
+.venv/
+venv/
+ENV/
+
+# Variables de entorno locales
+.env
+*.env
+
+# SonarQube e internas
+.sonar/
+.elastic/
+.scannerwork/
+
+# Terraform (Crucial para tu carpeta iac)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.rc
+terraform.rc
+'@ | Out-File -FilePath .gitignore -Encoding utf8
