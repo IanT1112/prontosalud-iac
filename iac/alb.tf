@@ -5,6 +5,12 @@ resource "aws_lb" "main" {
 
   enable_deletion_protection = true
 
+  access_logs {
+    bucket  = aws_s3_bucket.alb_logs.bucket
+    prefix  = "alb"
+    enabled = true
+  }
+
   security_groups = [
     aws_security_group.alb_sg.id
   ]
