@@ -4,6 +4,7 @@ resource "aws_lb" "main" {
   internal           = false
 
   enable_deletion_protection = true
+  drop_invalid_header_fields = true
 
   access_logs {
     bucket  = aws_s3_bucket.alb_logs.bucket
