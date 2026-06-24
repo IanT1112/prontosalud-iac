@@ -1,10 +1,9 @@
 resource "aws_lb" "main" {
-
-  name = "prontosalud-alb"
-
+  name               = "prontosalud-alb"
   load_balancer_type = "application"
+  internal           = false
 
-  internal = false
+  enable_deletion_protection = true
 
   security_groups = [
     aws_security_group.alb_sg.id
