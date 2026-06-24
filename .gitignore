@@ -29,3 +29,7 @@ override.tf.json
 .terraform.rc
 terraform.rc
 '@ | Out-File -FilePath .gitignore -Encoding utf8
+
+results.xml
+results_junitxml.xml
+*.xml
