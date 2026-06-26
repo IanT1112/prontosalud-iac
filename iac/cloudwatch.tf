@@ -1,11 +1,24 @@
+resource "aws_kms_key" "cloudwatch_logs" {
+  description             = "KMS key for CloudWatch Logs"
+  deletion_window_in_days = 7
+  enable_key_rotation     = true
+}
+
+resource "aws_kms_alias" "cloudwatch_logs" {
+  name          = "alias/${var.project_name}-cloudwatch-logs"
+  target_key_id = aws_kms_key.cloudwatch_logs.key_id
+}
+
 resource "aws_cloudwatch_log_group" "ecs_backend" {
   name              = "/ecs/${var.project_name}-backend"
-  retention_in_days = 7
+  retention_in_days = 365
+  kms_key_id        = aws_kms_key.cloudwatch_logs.arn
 }
 
 resource "aws_cloudwatch_log_group" "vpc_flow_logs" {
   name              = "/vpc/${var.project_name}-flow-logs"
-  retention_in_days = 7
+  retention_in_days = 365
+  kms_key_id        = aws_kms_key.cloudwatch_logs.arn
 }
 
 resource "aws_iam_role" "vpc_flow_logs_role" {

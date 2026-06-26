@@ -92,9 +92,9 @@ resource "aws_cloudfront_distribution" "frontend" {
     geo_restriction {
       restriction_type = "whitelist"
 
-        locations = [
-      "PE"
-        ]
+      locations = [
+        "PE"
+      ]
     }
   }
 
