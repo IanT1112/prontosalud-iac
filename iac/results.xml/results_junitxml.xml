@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<testsuites disabled="0" errors="0" failures="47" tests="136" time="0.0">
-	<testsuite disabled="0" errors="0" failures="47" name="terraform scan" skipped="0" tests="136" time="0">
+<testsuites disabled="0" errors="0" failures="51" tests="176" time="0.0">
+	<testsuite disabled="0" errors="0" failures="51" name="terraform scan" skipped="0" tests="176" time="0">
 		<properties>
 			<property name="directory" value="['/tf']"/>
 			<property name="add_check" value="False"/>
@@ -48,12 +48,36 @@
 		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/alb_logs.tf.aws_s3_bucket_public_access_block.alb_logs" file="/alb_logs.tf"/>
 		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/alb_logs.tf.aws_s3_bucket_public_access_block.alb_logs" file="/alb_logs.tf"/>
 		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/alb_logs.tf.aws_s3_bucket_public_access_block.alb_logs" file="/alb_logs.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/cloudfront.tf.aws_s3_bucket_public_access_block.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_68] CloudFront Distribution should have WAF enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_86] Ensure CloudFront distribution has Access Logging enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_310] Ensure CloudFront distributions should have origin failover configured" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_216] Ensure CloudFront distribution is enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_174] Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_374] Ensure AWS CloudFront web distribution has geo restriction enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_305] Ensure CloudFront distribution has a default root object configured" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_34] Ensure CloudFront distribution ViewerProtocolPolicy is set to HTTPS" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_70] Ensure S3 bucket does not allow an action with any Principal" classname="/cloudfront.tf.aws_s3_bucket_policy.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/cloudfront.tf.aws_s3_bucket_policy.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_70] Ensure S3 bucket does not allow an action with any Principal" classname="/cloudfront.tf.aws_s3_bucket_policy.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/cloudfront.tf.aws_s3_bucket_policy.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/cloudwatch.tf.aws_kms_key.cloudwatch_logs" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/cloudwatch.tf.aws_kms_key.cloudwatch_logs" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/cloudwatch.tf.aws_kms_key.cloudwatch_logs" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/cloudwatch.tf.aws_cloudwatch_log_group.ecs_backend" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/cloudwatch.tf.aws_cloudwatch_log_group.ecs_backend" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/cloudwatch.tf.aws_cloudwatch_log_group.ecs_backend" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/cloudwatch.tf.aws_iam_role.vpc_flow_logs_role" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/cloudwatch.tf.aws_iam_role.vpc_flow_logs_role" file="/cloudwatch.tf"/>
@@ -61,7 +85,9 @@
 		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/cloudwatch.tf.aws_iam_role.vpc_flow_logs_role" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_289] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_286] Ensure IAM policies does not allow privilege escalation" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_288] Ensure IAM policies does not allow data exfiltration" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV_AWS_287] Ensure IAM policies does not allow credentials exposure" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
@@ -97,359 +123,45 @@
 		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/security_groups.tf.aws_security_group.documentdb_sg" file="/security_groups.tf"/>
 		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/security_groups.tf.aws_security_group.documentdb_sg" file="/security_groups.tf"/>
 		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/security_groups.tf.aws_security_group.documentdb_sg" file="/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_175] Ensure WAF has associated rules" classname="/waf.tf.aws_wafv2_web_acl.cloudfront" file="/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_342] Ensure WAF rule has any actions" classname="/waf.tf.aws_wafv2_web_acl.cloudfront" file="/waf.tf"/>
 		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/networking.tf.aws_eip.nat_eip" file="/networking.tf"/>
-		<testcase name="[NONE][CKV2_AWS_72] Ensure AWS CloudFront origin protocol policy enforces HTTPS-only" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
-		<testcase name="[NONE][CKV2_AWS_76] Ensure AWS ALB attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/alb.tf.aws_lb.main" file="/alb.tf"/>
+		<testcase name="[NONE][CKV2_AWS_72] Ensure AWS CloudFront origin protocol policy enforces HTTPS-only" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/networking.tf.aws_route_table.public" file="/networking.tf"/>
 		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/networking.tf.aws_route_table.private" file="/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_76] Ensure AWS ALB attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/alb.tf.aws_lb.main" file="/alb.tf"/>
 		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/cloudwatch.tf.aws_iam_role.vpc_flow_logs_role" file="/cloudwatch.tf"/>
 		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/iam.tf.aws_iam_role.ecs_execution_role" file="/iam.tf"/>
 		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/iam.tf.aws_iam_role_policy_attachment.ecs_execution_policy" file="/iam.tf"/>
-		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf"/>
-		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
-		<testcase name="[NONE][CKV2_AWS_74] Ensure AWS Load Balancers use strong ciphers" classname="/alb.tf.aws_lb_listener.http" file="/alb.tf"/>
-		<testcase name="[NONE][CKV2_AWS_54] Ensure AWS CloudFront distribution is using secure SSL protocols for HTTPS communication" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf"/>
-		<testcase name="[NONE][CKV2_AWS_46] Ensure AWS CloudFront Distribution with S3 have Origin Access set to enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_74] Ensure AWS Load Balancers use strong ciphers" classname="/alb.tf.aws_lb_listener.http" file="/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
 		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/networking.tf.aws_route_table.public" file="/networking.tf"/>
 		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/networking.tf.aws_route_table.private" file="/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_46] Ensure AWS CloudFront Distribution with S3 have Origin Access set to enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_54] Ensure AWS CloudFront distribution is using secure SSL protocols for HTTPS communication" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/security_groups.tf.aws_security_group.alb_sg" file="/security_groups.tf"/>
 		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/security_groups.tf.aws_security_group.documentdb_sg" file="/security_groups.tf"/>
 		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/security_groups.tf.aws_security_group.ecs_sg" file="/security_groups.tf"/>
-		<testcase name="[NONE][CKV2_AWS_11] Ensure VPC flow logging is enabled in all VPCs" classname="/networking.tf.aws_vpc.main" file="/networking.tf"/>
 		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_11] Ensure VPC flow logging is enabled in all VPCs" classname="/networking.tf.aws_vpc.main" file="/networking.tf"/>
 		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
 		<testcase name="[NONE][CKV2_AWS_20] Ensure that ALB redirects HTTP requests into HTTPS ones" classname="/alb.tf.aws_lb.main" file="/alb.tf"/>
 		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf"/>
 		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf"/>
 		<testcase name="[NONE][CKV_AWS_103] Ensure that load balancer is using at least TLS 1.2" classname="/alb.tf.aws_lb_listener.http" file="/alb.tf"/>
-		<testcase name="[NONE][CKV_AWS_68] CloudFront Distribution should have WAF enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="CloudFront Distribution should have WAF enabled">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-27
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_86] Ensure CloudFront distribution has Access Logging enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Ensure CloudFront distribution has Access Logging enabled">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-20
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_310] Ensure CloudFront distributions should have origin failover configured" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Ensure CloudFront distributions should have origin failover configured">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-310
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_174] Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-networking-63
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_374] Ensure AWS CloudFront web distribution has geo restriction enabled" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Ensure AWS CloudFront web distribution has geo restriction enabled">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-374
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/cloudwatch.tf.aws_cloudwatch_log_group.ecs_backend" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure that CloudWatch Log Group is encrypted by KMS">
-Resource: aws_cloudwatch_log_group.ecs_backend
-File: /cloudwatch.tf: 1-4
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
-
-		1 | resource &quot;aws_cloudwatch_log_group&quot; &quot;ecs_backend&quot; {
-		2 |   name              = &quot;/ecs/${var.project_name}-backend&quot;
-		3 |   retention_in_days = 7
-		4 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/cloudwatch.tf.aws_cloudwatch_log_group.ecs_backend" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure CloudWatch log groups retains logs for at least 1 year">
-Resource: aws_cloudwatch_log_group.ecs_backend
-File: /cloudwatch.tf: 1-4
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338
-
-		1 | resource &quot;aws_cloudwatch_log_group&quot; &quot;ecs_backend&quot; {
-		2 |   name              = &quot;/ecs/${var.project_name}-backend&quot;
-		3 |   retention_in_days = 7
-		4 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure that CloudWatch Log Group is encrypted by KMS">
-Resource: aws_cloudwatch_log_group.vpc_flow_logs
-File: /cloudwatch.tf: 6-9
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
-
-		6 | resource &quot;aws_cloudwatch_log_group&quot; &quot;vpc_flow_logs&quot; {
-		7 |   name              = &quot;/vpc/${var.project_name}-flow-logs&quot;
-		8 |   retention_in_days = 7
-		9 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure CloudWatch log groups retains logs for at least 1 year">
-Resource: aws_cloudwatch_log_group.vpc_flow_logs
-File: /cloudwatch.tf: 6-9
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338
-
-		6 | resource &quot;aws_cloudwatch_log_group&quot; &quot;vpc_flow_logs&quot; {
-		7 |   name              = &quot;/vpc/${var.project_name}-flow-logs&quot;
-		8 |   retention_in_days = 7
-		9 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions">
-Resource: aws_iam_role_policy.vpc_flow_logs_policy
-File: /cloudwatch.tf: 28-47
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-355
-
-		28 | resource &quot;aws_iam_role_policy&quot; &quot;vpc_flow_logs_policy&quot; {
-		29 |   name = &quot;${var.project_name}-vpc-flow-logs-policy&quot;
-		30 |   role = aws_iam_role.vpc_flow_logs_role.id
-		31 | 
-		32 |   policy = jsonencode({
-		33 |     Version = &quot;2012-10-17&quot;
-		34 |     Statement = [
-		35 |       {
-		36 |         Effect = &quot;Allow&quot;
-		37 |         Action = [
-		38 |           &quot;logs:CreateLogStream&quot;,
-		39 |           &quot;logs:PutLogEvents&quot;,
-		40 |           &quot;logs:DescribeLogGroups&quot;,
-		41 |           &quot;logs:DescribeLogStreams&quot;
-		42 |         ]
-		43 |         Resource = &quot;*&quot;
-		44 |       }
-		45 |     ]
-		46 |   })
-		47 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/cloudwatch.tf.aws_iam_role_policy.vpc_flow_logs_policy" file="/cloudwatch.tf">
-			<failure type="failure" message="Ensure IAM policies does not allow write access without constraints">
-Resource: aws_iam_role_policy.vpc_flow_logs_policy
-File: /cloudwatch.tf: 28-47
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-290
-
-		28 | resource &quot;aws_iam_role_policy&quot; &quot;vpc_flow_logs_policy&quot; {
-		29 |   name = &quot;${var.project_name}-vpc-flow-logs-policy&quot;
-		30 |   role = aws_iam_role.vpc_flow_logs_role.id
-		31 | 
-		32 |   policy = jsonencode({
-		33 |     Version = &quot;2012-10-17&quot;
-		34 |     Statement = [
-		35 |       {
-		36 |         Effect = &quot;Allow&quot;
-		37 |         Action = [
-		38 |           &quot;logs:CreateLogStream&quot;,
-		39 |           &quot;logs:PutLogEvents&quot;,
-		40 |           &quot;logs:DescribeLogGroups&quot;,
-		41 |           &quot;logs:DescribeLogStreams&quot;
-		42 |         ]
-		43 |         Resource = &quot;*&quot;
-		44 |       }
-		45 |     ]
-		46 |   })
-		47 | }
-</failure>
-		</testcase>
 		<testcase name="[NONE][CKV_AWS_104] Ensure DocumentDB has audit logs enabled" classname="/documentdb.tf.aws_docdb_cluster_parameter_group.main" file="/documentdb.tf">
 			<failure type="failure" message="Ensure DocumentDB has audit logs enabled">
 Resource: aws_docdb_cluster_parameter_group.main
@@ -937,48 +649,103 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		112 |   }
 		113 | }</failure>
 		</testcase>
+		<testcase name="[NONE][CKV_AWS_192] Ensure WAF prevents message lookup in Log4j2. See CVE-2021-44228 aka log4jshell" classname="/waf.tf.aws_wafv2_web_acl.cloudfront" file="/waf.tf">
+			<failure type="failure" message="Ensure WAF prevents message lookup in Log4j2. See CVE-2021-44228 aka log4jshell">
+Resource: aws_wafv2_web_acl.cloudfront
+File: /waf.tf: 1-36
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-waf-prevents-message-lookup-in-log4j2
+
+		1  | resource &quot;aws_wafv2_web_acl&quot; &quot;cloudfront&quot; {
+		2  |   name  = &quot;${var.project_name}-cloudfront-waf&quot;
+		3  |   scope = &quot;CLOUDFRONT&quot;
+		4  | 
+		5  |   default_action {
+		6  |     allow {}
+		7  |   }
+		8  | 
+		9  |   rule {
+		10 |     name     = &quot;AWSManagedRulesCommonRuleSet&quot;
+		11 |     priority = 1
+		12 | 
+		13 |     override_action {
+		14 |       none {}
+		15 |     }
+		16 | 
+		17 |     statement {
+		18 |       managed_rule_group_statement {
+		19 |         name        = &quot;AWSManagedRulesCommonRuleSet&quot;
+		20 |         vendor_name = &quot;AWS&quot;
+		21 |       }
+		22 |     }
+		23 | 
+		24 |     visibility_config {
+		25 |       cloudwatch_metrics_enabled = true
+		26 |       metric_name                = &quot;${var.project_name}-common-rules&quot;
+		27 |       sampled_requests_enabled   = true
+		28 |     }
+		29 |   }
+		30 | 
+		31 |   visibility_config {
+		32 |     cloudwatch_metrics_enabled = true
+		33 |     metric_name                = &quot;${var.project_name}-cloudfront-waf&quot;
+		34 |     sampled_requests_enabled   = true
+		35 |   }
+		36 | }</failure>
+		</testcase>
 		<testcase name="[NONE][CKV2_AWS_32] Ensure CloudFront distribution has a response headers policy attached" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
 			<failure type="failure" message="Ensure CloudFront distribution has a response headers policy attached">
 Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
+File: /cloudfront.tf: 37-106
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-networking-65
 
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.alb_logs
+File: /alb_logs.tf: 1-4
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		1 | resource &quot;aws_s3_bucket&quot; &quot;alb_logs&quot; {
+		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
+		3 |   force_destroy = true
+		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.frontend
+File: /s3.tf: 1-4
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		1 | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
+		2 |   bucket        = &quot;${var.project_name}-frontend-${random_id.bucket_suffix.hex}&quot;
+		3 |   force_destroy = true
+		4 | }
 </failure>
 		</testcase>
 		<testcase name="[NONE][CKV_AWS_378] Ensure AWS Load Balancer doesn't use HTTP protocol" classname="/alb.tf.aws_lb_target_group.backend" file="/alb.tf">
@@ -1008,29 +775,13 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		43 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
-			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
-Resource: aws_s3_bucket.alb_logs
-File: /alb_logs.tf: 1-4
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+		<testcase name="[NONE][CKV2_AWS_42] Ensure AWS CloudFront distribution uses custom SSL certificate" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure AWS CloudFront distribution uses custom SSL certificate">
+Resource: aws_cloudfront_distribution.frontend
+File: /cloudfront.tf: 37-106
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-cloudfront-distribution-uses-custom-ssl-certificate
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;alb_logs&quot; {
-		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
-		3 |   force_destroy = true
-		4 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
-			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
-Resource: aws_s3_bucket.frontend
-File: /s3.tf: 1-4
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
-
-		1 | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
-		2 |   bucket        = &quot;${var.project_name}-frontend-${random_id.bucket_suffix.hex}&quot;
-		3 |   force_destroy = true
-		4 | }
-</failure>
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.</failure>
 		</testcase>
 		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
 			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
@@ -1042,6 +793,30 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
 		3 |   force_destroy = true
 		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
 </failure>
 		</testcase>
 		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
@@ -1056,49 +831,48 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		4 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV2_AWS_42] Ensure AWS CloudFront distribution uses custom SSL certificate" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Ensure AWS CloudFront distribution uses custom SSL certificate">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-cloudfront-distribution-uses-custom-ssl-certificate
+		<testcase name="[NONE][CKV2_AWS_31] Ensure WAF2 has a Logging Configuration" classname="/waf.tf.aws_wafv2_web_acl.cloudfront" file="/waf.tf">
+			<failure type="failure" message="Ensure WAF2 has a Logging Configuration">
+Resource: aws_wafv2_web_acl.cloudfront
+File: /waf.tf: 1-36
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-logging-33
 
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
+		1  | resource &quot;aws_wafv2_web_acl&quot; &quot;cloudfront&quot; {
+		2  |   name  = &quot;${var.project_name}-cloudfront-waf&quot;
+		3  |   scope = &quot;CLOUDFRONT&quot;
+		4  | 
+		5  |   default_action {
+		6  |     allow {}
+		7  |   }
+		8  | 
+		9  |   rule {
+		10 |     name     = &quot;AWSManagedRulesCommonRuleSet&quot;
+		11 |     priority = 1
 		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
+		13 |     override_action {
+		14 |       none {}
+		15 |     }
+		16 | 
+		17 |     statement {
+		18 |       managed_rule_group_statement {
+		19 |         name        = &quot;AWSManagedRulesCommonRuleSet&quot;
+		20 |         vendor_name = &quot;AWS&quot;
+		21 |       }
+		22 |     }
+		23 | 
+		24 |     visibility_config {
+		25 |       cloudwatch_metrics_enabled = true
+		26 |       metric_name                = &quot;${var.project_name}-common-rules&quot;
+		27 |       sampled_requests_enabled   = true
+		28 |     }
+		29 |   }
+		30 | 
+		31 |   visibility_config {
+		32 |     cloudwatch_metrics_enabled = true
+		33 |     metric_name                = &quot;${var.project_name}-cloudfront-waf&quot;
+		34 |     sampled_requests_enabled   = true
+		35 |   }
+		36 | }</failure>
 		</testcase>
 		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
 			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
@@ -1112,6 +886,30 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		4 | }
 </failure>
 		</testcase>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
+</failure>
+		</testcase>
 		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
 			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
 Resource: aws_s3_bucket.frontend
@@ -1122,6 +920,42 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		2 |   bucket        = &quot;${var.project_name}-frontend-${random_id.bucket_suffix.hex}&quot;
 		3 |   force_destroy = true
 		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
+			<failure type="failure" message="Ensure all data stored in the S3 bucket have versioning enabled">
+Resource: aws_s3_bucket.alb_logs
+File: /alb_logs.tf: 1-4
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+		1 | resource &quot;aws_s3_bucket&quot; &quot;alb_logs&quot; {
+		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
+		3 |   force_destroy = true
+		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure all data stored in the S3 bucket have versioning enabled">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure all data stored in the S3 bucket have versioning enabled">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
 </failure>
 		</testcase>
 		<testcase name="[NONE][CKV2_AWS_12] Ensure the default security group of every VPC restricts all traffic" classname="/networking.tf.aws_vpc.main" file="/networking.tf">
@@ -1142,62 +976,6 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		10 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
-			<failure type="failure" message="Ensure all data stored in the S3 bucket have versioning enabled">
-Resource: aws_s3_bucket.alb_logs
-File: /alb_logs.tf: 1-4
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
-
-		1 | resource &quot;aws_s3_bucket&quot; &quot;alb_logs&quot; {
-		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
-		3 |   force_destroy = true
-		4 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV2_AWS_47] Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
-			<failure type="failure" message="Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability">
-Resource: aws_cloudfront_distribution.frontend
-File: /cloudfront.tf: 9-44
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-47
-
-		9  | resource &quot;aws_cloudfront_distribution&quot; &quot;frontend&quot; {
-		10 |   enabled             = true
-		11 |   default_root_object = &quot;index.html&quot;
-		12 | 
-		13 |   origin {
-		14 |     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
-		15 |     origin_id                = &quot;frontend-s3-origin&quot;
-		16 |     origin_access_control_id = aws_cloudfront_origin_access_control.frontend.id
-		17 |   }
-		18 | 
-		19 |   default_cache_behavior {
-		20 |     target_origin_id       = &quot;frontend-s3-origin&quot;
-		21 |     viewer_protocol_policy = &quot;redirect-to-https&quot;
-		22 | 
-		23 |     allowed_methods = [&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]
-		24 |     cached_methods  = [&quot;GET&quot;, &quot;HEAD&quot;]
-		25 | 
-		26 |     forwarded_values {
-		27 |       query_string = false
-		28 | 
-		29 |       cookies {
-		30 |         forward = &quot;none&quot;
-		31 |       }
-		32 |     }
-		33 |   }
-		34 | 
-		35 |   restrictions {
-		36 |     geo_restriction {
-		37 |       restriction_type = &quot;none&quot;
-		38 |     }
-		39 |   }
-		40 | 
-		41 |   viewer_certificate {
-		42 |     cloudfront_default_certificate = true
-		43 |   }
-		44 | }
-</failure>
-		</testcase>
 		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
 			<failure type="failure" message="Ensure that an S3 bucket has a lifecycle configuration">
 Resource: aws_s3_bucket.alb_logs
@@ -1210,6 +988,30 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		4 | }
 </failure>
 		</testcase>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that an S3 bucket has a lifecycle configuration">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure that an S3 bucket has a lifecycle configuration">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
+</failure>
+		</testcase>
 		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
 			<failure type="failure" message="Ensure that an S3 bucket has a lifecycle configuration">
 Resource: aws_s3_bucket.frontend
@@ -1220,6 +1022,19 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		2 |   bucket        = &quot;${var.project_name}-frontend-${random_id.bucket_suffix.hex}&quot;
 		3 |   force_destroy = true
 		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/cloudwatch.tf.aws_kms_key.cloudwatch_logs" file="/cloudwatch.tf">
+			<failure type="failure" message="Ensure KMS key Policy is defined">
+Resource: aws_kms_key.cloudwatch_logs
+File: /cloudwatch.tf: 1-5
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-64
+
+		1 | resource &quot;aws_kms_key&quot; &quot;cloudwatch_logs&quot; {
+		2 |   description             = &quot;KMS key for CloudWatch Logs&quot;
+		3 |   deletion_window_in_days = 7
+		4 |   enable_key_rotation     = true
+		5 | }
 </failure>
 		</testcase>
 		<testcase name="[NONE][CKV2_AWS_28] Ensure public facing ALB are protected by WAF" classname="/alb.tf.aws_lb.main" file="/alb.tf">
@@ -1253,6 +1068,14 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		23 | }
 </failure>
 		</testcase>
+		<testcase name="[NONE][CKV2_AWS_47] Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/cloudfront.tf.aws_cloudfront_distribution.frontend" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability">
+Resource: aws_cloudfront_distribution.frontend
+File: /cloudfront.tf: 37-106
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-47
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.</failure>
+		</testcase>
 		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/alb_logs.tf.aws_s3_bucket.alb_logs" file="/alb_logs.tf">
 			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
 Resource: aws_s3_bucket.alb_logs
@@ -1263,6 +1086,30 @@ Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aw
 		2 |   bucket        = &quot;${var.project_name}-alb-logs-${random_id.bucket_suffix.hex}&quot;
 		3 |   force_destroy = true
 		4 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/cloudfront.tf.aws_s3_bucket.cloudfront_logs" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.cloudfront_logs
+File: /cloudfront.tf: 9-12
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		9  | resource &quot;aws_s3_bucket&quot; &quot;cloudfront_logs&quot; {
+		10 |   bucket        = &quot;${var.project_name}-cloudfront-logs-${random_id.bucket_suffix.hex}&quot;
+		11 |   force_destroy = true
+		12 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/cloudfront.tf.aws_s3_bucket.frontend_failover" file="/cloudfront.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.frontend_failover
+File: /cloudfront.tf: 23-26
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		23 | resource &quot;aws_s3_bucket&quot; &quot;frontend_failover&quot; {
+		24 |   bucket        = &quot;${var.project_name}-frontend-failover-${random_id.bucket_suffix.hex}&quot;
+		25 |   force_destroy = true
+		26 | }
 </failure>
 		</testcase>
 		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/s3.tf.aws_s3_bucket.frontend" file="/s3.tf">
