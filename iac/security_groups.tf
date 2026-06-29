@@ -5,10 +5,11 @@
 resource "aws_security_group" "alb_sg" {
 
   name = "alb-sg"
-
+  description = "Security group for Application Load Balancer"
   vpc_id = aws_vpc.main.id
 
   ingress {
+    description = "Allow HTTP traffic from internet"
 
     from_port = 80
 
@@ -20,6 +21,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   ingress {
+    description = "Allow HTTPS traffic from internet"
 
     from_port = 443
 
@@ -31,6 +33,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   egress {
+    description = "Allow outbound traffic to internet"
 
     from_port = 0
 
