@@ -31,10 +31,11 @@ resource "aws_docdb_cluster" "main" {
   vpc_security_group_ids          = [aws_security_group.documentdb_sg.id]
   db_cluster_parameter_group_name = aws_docdb_cluster_parameter_group.main.name
 
- backup_retention_period = 35
+  backup_retention_period = 35
 
   skip_final_snapshot = true
   storage_encrypted   = true
+  kms_key_id          = aws_kms_key.documentdb.arn
 }
 
 resource "aws_docdb_cluster_instance" "main" {
