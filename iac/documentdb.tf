@@ -33,6 +33,11 @@ resource "aws_docdb_cluster" "main" {
 
   backup_retention_period = 35
 
+  enabled_cloudwatch_logs_exports = [
+    "audit",
+    "profiler"
+  ]
+
   skip_final_snapshot = true
   storage_encrypted   = true
   kms_key_id          = aws_kms_key.documentdb.arn
