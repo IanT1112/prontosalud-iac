@@ -1,5 +1,10 @@
 resource "aws_ecs_cluster" "main" {
   name = "prontosalud-cluster"
+
+    setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
 }
 
 resource "aws_ecs_task_definition" "backend" {
