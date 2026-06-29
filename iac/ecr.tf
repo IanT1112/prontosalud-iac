@@ -8,5 +8,10 @@ resource "aws_ecr_repository" "backend" {
     scan_on_push = true
   }
 
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+  
   force_delete = true
 }
