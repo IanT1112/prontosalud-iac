@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "backend" {
 
   port = 3000
 
-  protocol = "HTTP"
+  protocol = "HTTPS"
 
   target_type = "ip"
 
@@ -38,7 +38,7 @@ resource "aws_lb_target_group" "backend" {
 
     path = "/"
 
-    protocol = "HTTP"
+    protocol = "HTTPS"
   }
 }
 
