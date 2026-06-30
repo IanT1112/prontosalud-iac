@@ -24,3 +24,8 @@ variable "openai_api_key" {
   default   = "REEMPLAZA_CON_TU_NUEVA_KEY"
   sensitive = true
 }
+
+variable "cloudfront_acm_certificate_arn" {
+  description = "ARN del certificado ACM para CloudFront en us-east-1"
+  type        = string
+}
