@@ -200,3 +200,18 @@ resource "aws_s3_bucket_notification" "cloudfront_logs" {
     filter_prefix = "cloudfront/"
   }
 }
+
+resource "aws_sns_topic" "frontend_failover_notifications" {
+  name              = "${var.project_name}-frontend-failover-notifications"
+  kms_master_key_id = "alias/aws/sns"
+}
+
+resource "aws_s3_bucket_notification" "frontend_failover" {
+  bucket = aws_s3_bucket.frontend_failover.id
+
+  topic {
+    topic_arn     = aws_sns_topic.frontend_failover_notifications.arn
+    events        = ["s3:ObjectCreated:*"]
+    filter_prefix = ""
+  }
+}
