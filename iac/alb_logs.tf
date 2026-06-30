@@ -69,3 +69,20 @@ resource "aws_s3_bucket_replication_configuration" "alb_logs" {
     }
   }
 }
+
+resource "aws_sns_topic" "alb_logs_replica_notifications" {
+  provider          = aws.replica
+  name              = "${var.project_name}-alb-logs-replica-notifications"
+  kms_master_key_id = "alias/aws/sns"
+}
+
+resource "aws_s3_bucket_notification" "alb_logs_replica" {
+  provider = aws.replica
+  bucket   = aws_s3_bucket.alb_logs_replica.id
+
+  topic {
+    topic_arn     = aws_sns_topic.alb_logs_replica_notifications.arn
+    events        = ["s3:ObjectCreated:*"]
+    filter_prefix = "AWSLogs/"
+  }
+}
