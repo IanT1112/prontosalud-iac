@@ -185,3 +185,18 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
     }
   }
 }
+
+resource "aws_sns_topic" "cloudfront_logs_notifications" {
+  name              = "${var.project_name}-cloudfront-logs-notifications"
+  kms_master_key_id = "alias/aws/sns"
+}
+
+resource "aws_s3_bucket_notification" "cloudfront_logs" {
+  bucket = aws_s3_bucket.cloudfront_logs.id
+
+  topic {
+    topic_arn     = aws_sns_topic.cloudfront_logs_notifications.arn
+    events        = ["s3:ObjectCreated:*"]
+    filter_prefix = "cloudfront/"
+  }
+}
