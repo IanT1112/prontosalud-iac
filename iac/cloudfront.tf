@@ -281,3 +281,15 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "frontend_failover
     }
   }
 }
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "cloudfront_logs_replica" {
+  provider = aws.replica
+  bucket   = aws_s3_bucket.cloudfront_logs_replica.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.s3_replica.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
