@@ -216,3 +216,57 @@ resource "aws_s3_bucket_notification" "frontend_failover" {
     filter_prefix = ""
   }
 }
+
+resource "aws_s3_bucket_versioning" "cloudfront_logs" {
+  bucket = aws_s3_bucket.cloudfront_logs.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket" "cloudfront_logs_replica" {
+  provider      = aws.replica
+  bucket        = "${var.project_name}-cloudfront-logs-replica-${random_id.bucket_suffix.hex}"
+  force_destroy = true
+}
+
+resource "aws_s3_bucket_versioning" "cloudfront_logs_replica" {
+  provider = aws.replica
+  bucket   = aws_s3_bucket.cloudfront_logs_replica.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_replication_configuration" "cloudfront_logs" {
+  depends_on = [
+    aws_s3_bucket_versioning.cloudfront_logs,
+    aws_s3_bucket_versioning.cloudfront_logs_replica
+  ]
+
+  role   = aws_iam_role.s3_replication_role.arn
+  bucket = aws_s3_bucket.cloudfront_logs.id
+
+  rule {
+    id     = "replicate-cloudfront-logs"
+    status = "Enabled"
+
+    destination {
+      bucket        = aws_s3_bucket.cloudfront_logs_replica.arn
+      storage_class = "STANDARD"
+    }
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "cloudfront_logs" {
+  bucket = aws_s3_bucket.cloudfront_logs.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.s3.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
