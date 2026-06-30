@@ -86,3 +86,14 @@ resource "aws_s3_bucket_notification" "alb_logs_replica" {
     filter_prefix = "AWSLogs/"
   }
 }
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs" {
+  bucket = aws_s3_bucket.alb_logs.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.s3.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
