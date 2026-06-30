@@ -23,13 +23,13 @@ resource "aws_security_group" "alb_sg" {
   egress {
     description = "Allow outbound traffic to internet"
 
-    from_port = 0
+    from_port = 8080
 
-    to_port = 0
+    to_port = 8080
 
-    protocol = "-1"
+    protocol = "tcp"
 
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.ecs_sg.id]
   }
 }
 
