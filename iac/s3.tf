@@ -23,3 +23,17 @@ resource "aws_s3_bucket_public_access_block" "frontend" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+resource "aws_sns_topic" "frontend_notifications" {
+  name              = "${var.project_name}-frontend-notifications"
+  kms_master_key_id = "alias/aws/sns"
+}
+
+resource "aws_s3_bucket_notification" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+
+  topic {
+    topic_arn = aws_sns_topic.frontend_notifications.arn
+    events    = ["s3:ObjectCreated:*"]
+  }
+}
