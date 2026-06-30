@@ -91,14 +91,14 @@ resource "aws_security_group" "documentdb_sg" {
   }
 
   egress {
-    description = "Allow outbound traffic from DocumentDB"
+    description = "Allow MongoDB response traffic to ECS tasks"
 
-    from_port = 0
+    from_port = 27017
 
-    to_port = 0
+    to_port = 27017
 
-    protocol = "-1"
+    protocol = "tcp"
 
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.ecs_sg.id]
   }
 }
