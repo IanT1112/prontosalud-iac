@@ -13,7 +13,8 @@ resource "aws_s3_bucket_public_access_block" "alb_logs" {
 }
 
 resource "aws_sns_topic" "alb_logs_notifications" {
-  name = "${var.project_name}-alb-logs-notifications"
+  name              = "${var.project_name}-alb-logs-notifications"
+  kms_master_key_id = "alias/aws/sns"
 }
 
 resource "aws_s3_bucket_notification" "alb_logs" {
