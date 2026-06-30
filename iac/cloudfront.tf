@@ -76,6 +76,8 @@ resource "aws_cloudfront_distribution" "frontend" {
     target_origin_id       = "frontend-origin-group"
     viewer_protocol_policy = "redirect-to-https"
 
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods  = ["GET", "HEAD"]
 
@@ -149,4 +151,37 @@ resource "aws_s3_bucket_policy" "frontend_failover" {
       }
     ]
   })
+}
+
+resource "aws_cloudfront_response_headers_policy" "security_headers" {
+  name = "${var.project_name}-security-headers-policy"
+
+  security_headers_config {
+    content_type_options {
+      override = true
+    }
+
+    frame_options {
+      frame_option = "DENY"
+      override     = true
+    }
+
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+
+    xss_protection {
+      protection = true
+      mode_block = true
+      override   = true
+    }
+  }
 }
