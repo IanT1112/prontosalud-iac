@@ -72,9 +72,12 @@ resource "aws_security_group" "documentdb_sg" {
 
   name = "documentdb-sg"
 
+  description = "Security group for Amazon DocumentDB"
+
   vpc_id = aws_vpc.main.id
 
   ingress {
+    description = "Allow MongoDB traffic from ECS tasks"
 
     from_port = 27017
 
@@ -88,6 +91,7 @@ resource "aws_security_group" "documentdb_sg" {
   }
 
   egress {
+    description = "Allow outbound traffic from DocumentDB"
 
     from_port = 0
 
