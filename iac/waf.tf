@@ -56,3 +56,29 @@ resource "aws_wafv2_web_acl" "cloudfront" {
     sampled_requests_enabled   = true
   }
 }
+
+resource "aws_cloudwatch_log_group" "waf_cloudfront_logs" {
+  name              = "aws-waf-logs-${var.project_name}-cloudfront"
+  retention_in_days = 90
+  kms_key_id        = aws_kms_key.cloudwatch_logs.arn
+}
+
+resource "aws_wafv2_web_acl_logging_configuration" "cloudfront" {
+  resource_arn = aws_wafv2_web_acl.cloudfront.arn
+
+  log_destination_configs = [
+    aws_cloudwatch_log_group.waf_cloudfront_logs.arn
+  ]
+
+  redacted_fields {
+    single_header {
+      name = "authorization"
+    }
+  }
+
+  redacted_fields {
+    single_header {
+      name = "cookie"
+    }
+  }
+}
